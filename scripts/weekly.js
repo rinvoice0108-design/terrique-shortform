@@ -40,10 +40,12 @@ async function main() {
   const isTest = process.argv.includes('--test');
   const env = loadEnv();
 
-  if (!isTest && !isSendDay()) {
+  const forceSend = process.env.FORCE_SEND === 'true';
+  if (!isTest && !forceSend && !isSendDay()) {
     console.log('오늘은 발송일이 아닙니다 (월요일 또는 월요일 공휴일 시 화요일만 발송). 종료합니다.');
     process.exit(0);
   }
+  if (forceSend) console.log('⚡ 강제 발송 모드 — 요일 체크 건너뜀');
 
   if (!env.ANTHROPIC_API_KEY) {
     console.error('❌ ANTHROPIC_API_KEY가 .env에 없습니다.');

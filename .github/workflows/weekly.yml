@@ -5,6 +5,11 @@ on:
     # KST 09:00 = UTC 00:00, 매일 실행 (발송일 판단은 스크립트 내부)
     - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      force_send:
+        description: '요일 무관 강제 발송 (테스트용)'
+        type: boolean
+        default: false
 
 jobs:
   send:
@@ -34,4 +39,5 @@ jobs:
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
+          FORCE_SEND: ${{ inputs.force_send }}
         run: node scripts/weekly.js
