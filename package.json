@@ -1,0 +1,20 @@
+{
+  "name": "terrique-shortform",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node scripts/weekly.js",
+    "test": "node scripts/weekly.js --test",
+    "test-email": "node scripts/send-email.js --test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "date-holidays": "^3.30.2",
+    "dotenv": "^16.5.0",
+    "googleapis": "^173.0.0",
+    "nodemailer": "^8.0.10"
+  }
+}

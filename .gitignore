@@ -1,0 +1,6 @@
+.env
+node_modules/
+output/
+used-topics.json
+service-account.json
+*-credentials.json
