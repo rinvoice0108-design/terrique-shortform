@@ -2,8 +2,8 @@ name: 테리크 숏폼 주간 발송
 
 on:
   schedule:
-    # KST 09:00 = UTC 00:00, 매일 실행 (발송일 판단은 스크립트 내부)
-    - cron: '0 0 * * *'
+    # KST 07:43 = UTC 22:43, 매일 실행 (발송일 판단은 스크립트 내부)
+    - cron: '43 22 * * *'
   workflow_dispatch:
     inputs:
       force_send:
